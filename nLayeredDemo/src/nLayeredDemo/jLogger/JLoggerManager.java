@@ -2,10 +2,10 @@ package nLayeredDemo.jLogger;
 
 public class JLoggerManager {
 	public void log(String message) {
-		System.out.println("J Logger ile loglandı.");
+		System.out.println("J Logger ile loglandÄ±." + message);
 		
-	}//sisteme dışardan yazılan bir paket olarak bunu düşünürsek bunu sisteme ekliyecez bu paketi
-	//mikroservice mimarileride bu mantıkla sisteme enjekte edilir. 
+	}//sisteme dÄ±ÅŸardan yazÄ±lan bir paket olarak bunu dÃ¼ÅŸÃ¼nÃ¼rsek bunu sisteme ekliyecez bu paketi
+	//mikroservice mimarileride bu mantÄ±kla sisteme enjekte edilir. 
 
 
 }
