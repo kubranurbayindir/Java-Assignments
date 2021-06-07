@@ -1,11 +1,6 @@
 package kodlamaio.northwind.entities.concretes;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity // anatasyon bazlı çalışma ile product javanın 1 entity olduğunu springe tanıtıyoruz.Sen 1 db nesnesisin diyoruz.
 @Table(name="products") //db de hangi tabloya karşılık geleceğini tnıt.
@@ -16,8 +11,8 @@ public class Product {
 	@Column(name="product_id")  //hangi kolana denk geliyor..
 	private int id;
 
-	@Column(name="category_id") 
-	private int categoryId;
+	//@Column(name="category_id") 
+	//private int categoryId;
 
 	@Column(name="product_name") 
 	private String productName;
@@ -32,56 +27,76 @@ public class Product {
 	private String quantityPerUnit;
 	
 	public Product() {
+		
 	}
-	public Product(int id, int categoryId, String productName, double unitPrice, short unitsInStock,
-			String quantityPerUnit) {
+	
+//	@ManyToOne(optional = false)
+//	@JoinColumn(name = "category_id", insertable = false, updatable = false)
+//    private Category category;
+	
+//	@ManyToOne()
+  //  @JoinColumn(name="category_id") //hangi product olduğunu soruyoruz. tek tek çağrıyor. id li olanı commentleyebiliriz. 
+  //  private Category category;
+
+	
+	public Product(int id, String productName, double unitPrice, short unitsInStock, String quantityPerUnit,
+			Category category) {
 		super();
 		this.id = id;
-		this.categoryId = categoryId;
 		this.productName = productName;
 		this.unitPrice = unitPrice;
 		this.unitsInStock = unitsInStock;
 		this.quantityPerUnit = quantityPerUnit;
+//		this.category = category;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getCategoryId() {
-		return categoryId;
-	}
-	
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
-	}
+
 	public String getProductName() {
 		return productName;
 	}
+
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
+
 	public double getUnitPrice() {
 		return unitPrice;
 	}
+
 	public void setUnitPrice(double unitPrice) {
 		this.unitPrice = unitPrice;
 	}
+
 	public short getUnitsInStock() {
 		return unitsInStock;
 	}
+
 	public void setUnitsInStock(short unitsInStock) {
 		this.unitsInStock = unitsInStock;
 	}
+
 	public String getQuantityPerUnit() {
 		return quantityPerUnit;
 	}
+
 	public void setQuantityPerUnit(String quantityPerUnit) {
 		this.quantityPerUnit = quantityPerUnit;
 	}
-	
+
+//	public Category getCategory() {
+//		return category;
+//	}
+
+//	public void setCategory(Category category) {
+//		this.category = category;
+//	}
 	
 	
 

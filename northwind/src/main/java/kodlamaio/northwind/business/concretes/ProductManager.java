@@ -29,7 +29,8 @@ public class ProductManager implements ProductService{
 
 	@Override
 	public DataResults<List<Product>> getAll() {
-		return new SuccessDataResults<List<Product>>(this.productDao.findAll(), "Data Listelendi."); //önce data. sonra mesajı yaz doğru olduğu koşulda çalışacak.
+		return new SuccessDataResults<List<Product>>
+		(this.productDao.findAll(), "Data Listelendi."); //önce data. sonra mesajı yaz doğru olduğu koşulda çalışacak.
 			
 	}//sırada dao ya erişmemiz lazım. 
 
@@ -38,5 +39,21 @@ public class ProductManager implements ProductService{
 		this.productDao.save(product);		
 		return new SuccessResults("Ürün eklendi.");
 	}
+
+	@Override
+	public DataResults<Product> getByProductName(String productName) {
+		return new SuccessDataResults<Product>
+		(this.productDao.getByProductName(productName),"Data listelendi");
+	}
+
+	//@Override
+	//public DataResults<Product> getByProductNameAndCategoryId(String productName, int categoryId) {
+
+		//business codes
+		
+	//	return new SuccessDataResults<Product>
+	//	(this.productDao.getByProductNameAndCategoryId(productName,categoryId),"Data listelendi");
+	//}
+
 
 }
